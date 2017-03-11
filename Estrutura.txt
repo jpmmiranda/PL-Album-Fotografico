@@ -1,0 +1,51 @@
+Notas a considerar sobre as fotos : Atributos
+
+*************************************************************
+*				Todas						Algumas			*
+*															*
+*															*
+* Nome			  X											*
+*															*
+*															*
+*															*
+* Dono 			  X	  										*
+*															*
+*														    *
+*															*
+* Local										   X			*
+*															*
+*															*
+*															*
+* Data										   X			*
+*															*
+*															*
+*															*
+* Facto										   X			*
+*															*
+*															*
+*															*
+*************************************************************
+
+
+
+Estrutura do Album (Nome refere-se ao nome do ficheiro e Locais a lista de todos os locais onde se tirou fotografias sem repetições)
+
+
+*Dono1
+	*Data
+	*Local
+	*Facto
+	*Nome
+		*1.JPEG ou PNG
+		*2.JPEG ou PNG
+		*...
+*Dono2
+	*....
+	*....
+.
+.
+.
+*Locais
+	*Local1
+	*Local2
+	*...
