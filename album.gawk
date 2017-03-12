@@ -9,9 +9,12 @@ BEGIN{FS=">";
 	  print "<h1>Album Fotografico</h1>" > "album.html"
 }
 
-/<quem>.*<\/quem>/	{split($2, a, "<", seps)
- 					printf nome, a[1], a[1] > "album.html"
- 					printf header > a[1]".html"
- 					printf "<h1>" a[1] "</h1>" > "album.html"}
+/<quem>.*<\/quem>/	{teste = $0
+					gsub(/[ \t]*<quem>[ \t]*/,"",teste)
+					gsub(/[ \t]*<\/quem>[ \t]*/,"",teste)
+ 					printf nome, teste, teste > "album.html"
+ 					#printf header > a[1]".html"
+ 					#printf "<h1>" a[1] "</h1>" > "album.html"
+ 					}
 
 
