@@ -5,13 +5,15 @@ BEGIN{
 	  imagem = "<center> <img src='%s'/> </center>"
 	  header= "<html><head><meta charset='UTF-8'/></head><body>"
 	  headerClose = "</html><head><meta charset='UTF-8'/></head><body>"
+	  titulo = "<h1>%s</h1>"
 	  print header > "album.html"
 	  print "<h1>Album Fotografico</h1>" > "album.html"
 }
 
 /<foto ficheiro=".*">/	{nomeFich[i] = $0
-						gsub(/<foto ficheiro="/,"",nomeFich[i])
-						gsub(/">/,"",nomeFich[i])
+						gsub(/.*<foto ficheiro="/,null,nomeFich[i])
+						gsub(/">.*/,null,nomeFich[i])
+						gsub(/.jpg/,null,nomeFich[i])
 						i++
 						}
 
@@ -22,9 +24,12 @@ BEGIN{
 
 END{
 	for(j = 0; j<i;j++){
-		printf nome, nomeFich[j],teste[j] > "album.html"
-		print header > nomeFich[j]".html"
-		print "</body></html>" > nomeFich[j]".html"
+		if(teste[j] != ""){
+			printf nome, nomeFich[j]".html",teste[j] > "album.html"
+			print header > nomeFich[j]".html"
+			printf titulo, teste[j] > nomeFich[j]".html"
+			print "</body></html>" > nomeFich[j]".html"
+		}
 	}
 	print "</body></html>" > "album.html"
 }
